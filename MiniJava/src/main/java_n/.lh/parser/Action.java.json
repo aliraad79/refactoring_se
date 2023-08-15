@@ -1,0 +1,22 @@
+{
+    "sourceFile": "parser/Action.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1692099878456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1692100476593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,44 +0,0 @@\n-package parser;\r\n-public class AddressToStringConverter {\r\n-    private Address address;\r\n-\r\n-    public AddressToStringConverter(Address address) {\r\n-        this.address = address;\r\n-    }\r\n-\r\n-    public String convert() {\r\n-        Map<TypeAddress, String> typeSymbols = new HashMap<>();\r\n-        typeSymbols.put(TypeAddress.Direct, \"\");\r\n-        typeSymbols.put(TypeAddress.Indirect, \"@\");\r\n-        typeSymbols.put(TypeAddress.Imidiate, \"#\");\r\n-\r\n-        return typeSymbols.getOrDefault(address.Type, \"\") + address.num;\r\n-    }\r\n-}\r\n-public class Action {\r\n-    public act action;\r\n-    //if action = shift : number is state\r\n-    //if action = reduce : number is number of rule\r\n-    public int number;\r\n-\r\n-    public Action(act action, int number) {\r\n-        this.action = action;\r\n-        this.number = number;\r\n-    }\r\n-\r\n-    public String toString() {\r\n-        switch (action) {\r\n-            case accept:\r\n-                return \"acc\";\r\n-            case shift:\r\n-                return \"s\" + number;\r\n-            case reduce:\r\n-                return \"r\" + number;\r\n-        }\r\n-        return action.toString() + number;\r\n-    }\r\n-}\r\n-\r\n-enum act {\r\n-    shift, reduce, accept\r\n-}\r\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1692099878456,
+            "name": "Commit-0",
+            "content": "package parser;\r\npublic class AddressToStringConverter {\r\n    private Address address;\r\n\r\n    public AddressToStringConverter(Address address) {\r\n        this.address = address;\r\n    }\r\n\r\n    public String convert() {\r\n        Map<TypeAddress, String> typeSymbols = new HashMap<>();\r\n        typeSymbols.put(TypeAddress.Direct, \"\");\r\n        typeSymbols.put(TypeAddress.Indirect, \"@\");\r\n        typeSymbols.put(TypeAddress.Imidiate, \"#\");\r\n\r\n        return typeSymbols.getOrDefault(address.Type, \"\") + address.num;\r\n    }\r\n}\r\npublic class Action {\r\n    public act action;\r\n    //if action = shift : number is state\r\n    //if action = reduce : number is number of rule\r\n    public int number;\r\n\r\n    public Action(act action, int number) {\r\n        this.action = action;\r\n        this.number = number;\r\n    }\r\n\r\n    public String toString() {\r\n        switch (action) {\r\n            case accept:\r\n                return \"acc\";\r\n            case shift:\r\n                return \"s\" + number;\r\n            case reduce:\r\n                return \"r\" + number;\r\n        }\r\n        return action.toString() + number;\r\n    }\r\n}\r\n\r\nenum act {\r\n    shift, reduce, accept\r\n}\r\n"
+        }
+    ]
+}
