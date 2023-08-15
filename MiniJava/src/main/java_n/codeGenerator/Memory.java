@@ -76,17 +76,14 @@ class _3AddressCode {
         Operand3 = opr3;
     }
 
-    public String toString() {
-        if (operation == null) return "";
-        StringBuffer res = new StringBuffer("(");
-        res.append(operation.toString()).append(",");
-        if (Operand1 != null) res.append(Operand1.toString());
-        res.append(",");
-        if (Operand2 != null) res.append(Operand2.toString());
-        res.append(",");
-        if (Operand3 != null) res.append(Operand3.toString());
-        res.append(")");
+public String toString() {
+    if (operation == null) return "";
 
-        return res.toString();
-    }
+    String operationString = operation.toString();
+    String operand1String = (Operand1 != null) ? Operand1.toString() : "";
+    String operand2String = (Operand2 != null) ? Operand2.toString() : "";
+    String operand3String = (Operand3 != null) ? Operand3.toString() : "";
+
+    return "(" + operationString + "," + operand1String + "," + operand2String + "," + operand3String + ")";
+}
 }
