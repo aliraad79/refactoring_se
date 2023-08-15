@@ -1,0 +1,18 @@
+{
+    "sourceFile": "codeGenerator/Address.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1692099472200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1692099472200,
+            "name": "Commit-0",
+            "content": "package codeGenerator;\r\n\r\n/**\r\n * Created by mohammad hosein on 6/28/2015.\r\n */\r\n\r\npublic class Address {\r\n    public int num;\r\n    public TypeAddress Type;\r\n    public varType varType;\r\n\r\n    public Address(int num, varType varType, TypeAddress Type) {\r\n        this.num = num;\r\n        this.Type = Type;\r\n        this.varType = varType;\r\n    }\r\n\r\n    public Address(int num, varType varType) {\r\n        this.num = num;\r\n        this.Type = TypeAddress.Direct;\r\n        this.varType = varType;\r\n    }\r\n\r\npublic String toString() {\r\n    Map<TypeAddress, String> typeSymbols = new HashMap<>();\r\n    typeSymbols.put(TypeAddress.Direct, \"\");\r\n    typeSymbols.put(TypeAddress.Indirect, \"@\");\r\n    typeSymbols.put(TypeAddress.Imidiate, \"#\");\r\n\r\n    return typeSymbols.getOrDefault(Type, \"\") + num;\r\n}\r\n}\r\n"
+        }
+    ]
+}
