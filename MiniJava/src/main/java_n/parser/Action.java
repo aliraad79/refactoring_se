@@ -1,41 +1,44 @@
 package parser;
 
-public class Action {
-    public act action;
+public abstract class Action {
     public int number;
 
-    public Action(act action, int number) {
-        this.action = action;
+    public Action(int number) {
         this.number = number;
     }
 
+    public abstract String toString();
+}
+
+class AcceptAction extends Action {
+    public AcceptAction(int number) {
+        super(number);
+    }
+
+    @Override
     public String toString() {
-        return new ActionToString(this).compute();
+        return "acc";
     }
 }
 
-class ActionToString {
-    private final act action;
-    private final int number;
-
-    public ActionToString(Action actionObj) {
-        this.action = actionObj.action;
-        this.number = actionObj.number;
+class ShiftAction extends Action {
+    public ShiftAction(int number) {
+        super(number);
     }
 
-    public String compute() {
-        switch (action) {
-            case accept:
-                return "acc";
-            case shift:
-                return "s" + number;
-            case reduce:
-                return "r" + number;
-        }
-        return action.toString() + number;
+    @Override
+    public String toString() {
+        return "s" + number;
     }
 }
 
-enum act {
-    shift, reduce, accept
+class ReduceAction extends Action {
+    public ReduceAction(int number) {
+        super(number);
+    }
+
+    @Override
+    public String toString() {
+        return "r" + number;
+    }
 }
